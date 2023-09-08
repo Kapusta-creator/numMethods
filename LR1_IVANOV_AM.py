@@ -10,7 +10,7 @@ def calc(f, x):
 # Метод дихотомии
 def dih(f, x1, x2, eps):
     mid = 0
-    while abs(x1 - x2) > eps:
+    while abs(x1 - x2) / 2 > eps:
         mid = (x1 + x2) / 2
         if calc(f, x1) * calc(f, mid) < 0:
             x2 = mid
