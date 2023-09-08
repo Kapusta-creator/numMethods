@@ -20,6 +20,7 @@ def dih(f, x1, x2, eps):
             x1 = mid
     return mid
 
+
 # Заполнение массива корней для производных полинома и самого полинома
 def roots_for_pr(level, first, second, roots_cnt, n, eps):
     major = 0
@@ -75,7 +76,6 @@ def roots_for_pr(level, first, second, roots_cnt, n, eps):
         else:
             second[level][roots_cnt[level]] = dih(first[level], edgeNegativ, edgePositive, 0.00000000001) # т.к. для поиска интервалов используются производные, рассчет корней производных должен быть с большей точностью
         roots_cnt[level] += 1
-
 
 
 # Входная функция алгоритма, нахождение производных полинома
