@@ -20,9 +20,8 @@ def dih(f, x1, x2, eps):
             x1 = mid
     return mid
 
-
 # Заполнение массива корней для производных полинома и самого полинома
-def roots_for_pr(level, first, second, roots_cnt):
+def roots_for_pr(level, first, second, roots_cnt, n, eps):
     major = 0
     for i in range(level):
         s = abs(first[level][i])
@@ -71,12 +70,16 @@ def roots_for_pr(level, first, second, roots_cnt):
             edgeNegativ = edgeRight
             edgePositive = edgeLeft
 
-        second[level][roots_cnt[level]] = dih(first[level], edgeNegativ, edgePositive, 0.00000001)
+        if level == n:
+            second[level][roots_cnt[level]] = dih(first[level], edgeNegativ, edgePositive, eps)
+        else:
+            second[level][roots_cnt[level]] = dih(first[level], edgeNegativ, edgePositive, 0.00000000001) # т.к. для поиска интервалов используются производные, рассчет корней производных должен быть с большей точностью
         roots_cnt[level] += 1
 
 
+
 # Входная функция алгоритма, нахождение производных полинома
-def get_roots(polynom):
+def get_roots(polynom, eps):
     first = [[0 for i in range(j + 1)] for j in range(len(polynom))]
     second = [[0 for i in range(j + 1)] for j in range(len(polynom))]
     n = len(polynom) - 1
@@ -92,7 +95,7 @@ def get_roots(polynom):
     second[1][0] = -first[1][0]
     roots_cnt[1] = 1
     for i in range(2, n + 1):
-        roots_for_pr(i, first, second, roots_cnt)
+        roots_for_pr(i, first, second, roots_cnt, n, eps)
     rootsCount = roots_cnt[n]
     roots = [0 for i in range(rootsCount)]
     for i in range(rootsCount):
@@ -103,7 +106,7 @@ def get_roots(polynom):
 p = [-192, -160, 68, 24, -11, 1]  # Полином x^5 - 11x^4 + 24x^3 + 68x^2 - 160x -192
 print("Пример работы алгоритма задания 1:\n")
 print("Полином x^5 - 11x^4 + 24x^3 + 68x^2 - 160x -192\n")
-print(f"Найденные корни: {get_roots(p)}")
+print(f"Найденные корни: {get_roots(p, 0.001)}")
 
 
 # Номер 2(нахождение корня)
