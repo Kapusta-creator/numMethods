@@ -137,7 +137,7 @@ def zeydelMethod(matrix, eps, iterCnt):
     return x1
 
 
-def solve_LU(a, b):
+def LU_Method(a, b):
     lu_matrix = np.matrix(np.zeros([a.shape[0], a.shape[1]]))
     n = a.shape[0]
 
@@ -169,7 +169,7 @@ a3 = np.array([[1.0, 4.0, 3.0],
                [3.0, -1.0, 1.0]])
 b3 = np.array([[10.0], [-1.0], [11.0]])
 print("\n")
-print("LU- разложение, матрица 3\n", *solve_LU(copy.deepcopy(a3), copy.deepcopy(b3)))
+print("LU- разложение, матрица 3\n", *LU_Method(copy.deepcopy(a3), copy.deepcopy(b3)))
 print(f"\nМатрица 6\n{augMatrix6}\n")
 print("Метод простых итераций, матрица 6\n", simpleIterMethod(copy.deepcopy(augMatrix6), 0.000000001, 100000000))
 print("\n")
