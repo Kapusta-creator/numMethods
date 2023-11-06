@@ -33,13 +33,14 @@ def iter(a, x, eps=0.001, max_iter=1000):
     return lambda_, x
 
 
-print("Исходная матрица\n")
-print(A)
+if __name__ == "__main__":
+    print("Исходная матрица\n")
+    print(A)
 
 
-print("Решение методом итераций\n")
-value, vector = iter(A, X)
-print(f"Собственное число {value}\n", f"Собственный вектор {vector}\n", sep="")
+    print("Решение методом итераций\n")
+    value, vector = iter(A, X)
+    print(f"Собственное число {value}\n", f"Собственный вектор {vector}\n", sep="")
 
 
 def get_max_upper_diag(A):
@@ -83,9 +84,11 @@ A = np.array([[5, 1, 2],
               [1, 4, 1],
               [2, 1, 3]])
 
-print("Решение методом вращения\n")
-lambdas, vec = rotate(A)
-print(f"Собственные числа {lambdas}\n")
-print("Собственные вектора:\n")
-print(*vec.T, sep="\n")
+
+if __name__ == "__main__":
+    print("Решение методом вращения\n")
+    lambdas, vec = rotate(A)
+    print(f"Собственные числа {lambdas}\n")
+    print("Собственные вектора:\n")
+    print(*vec.T, sep="\n")
 

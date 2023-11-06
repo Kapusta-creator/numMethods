@@ -158,23 +158,24 @@ def LU_Method(a, b):
     return x
 
 
-print(f"\nМатрица 1 \n{augMatrix}\n")
-print("Метод единичного деления, матрица 1\n", gaussMethod(copy.deepcopy(augMatrix)))
-print(f"\nМатрица 4\n{augMatrix4}\n")
-print("Выбор ведущего элемента, матрица 4\n", gaussMethodGeneralElem(copy.deepcopy(augMatrix4)))
-print(f"\nМатрица 3\n{augMatrix3}\n")
-print("Метод исключения, матрица 3\n", gaussMethodRect(copy.deepcopy(augMatrix3)))
-a3 = np.array([[1.0, 4.0, 3.0],
-               [2.0, 1.0, -1.0],
-               [3.0, -1.0, 1.0]])
-b3 = np.array([[10.0], [-1.0], [11.0]])
-print("\n")
-print("LU- разложение, матрица 3\n", *LU_Method(copy.deepcopy(a3), copy.deepcopy(b3)))
-print(f"\nМатрица 6\n{augMatrix6}\n")
-print("Метод простых итераций, матрица 6\n", simpleIterMethod(copy.deepcopy(augMatrix6), 0.000000001, 100000000))
-print("\n")
-print("Метод Зейделя, матрица 6\n", zeydelMethod(copy.deepcopy(augMatrix6), 0.000000001, 100000000))
-print("\n")
+if __name__ == "__main__":
+    print(f"\nМатрица 1 \n{augMatrix}\n")
+    print("Метод единичного деления, матрица 1\n", gaussMethod(copy.deepcopy(augMatrix)))
+    print(f"\nМатрица 4\n{augMatrix4}\n")
+    print("Выбор ведущего элемента, матрица 4\n", gaussMethodGeneralElem(copy.deepcopy(augMatrix4)))
+    print(f"\nМатрица 3\n{augMatrix3}\n")
+    print("Метод исключения, матрица 3\n", gaussMethodRect(copy.deepcopy(augMatrix3)))
+    a3 = np.array([[1.0, 4.0, 3.0],
+                   [2.0, 1.0, -1.0],
+                   [3.0, -1.0, 1.0]])
+    b3 = np.array([[10.0], [-1.0], [11.0]])
+    print("\n")
+    print("LU- разложение, матрица 3\n", *LU_Method(copy.deepcopy(a3), copy.deepcopy(b3)))
+    print(f"\nМатрица 6\n{augMatrix6}\n")
+    print("Метод простых итераций, матрица 6\n", simpleIterMethod(copy.deepcopy(augMatrix6), 0.000000001, 100000000))
+    print("\n")
+    print("Метод Зейделя, матрица 6\n", zeydelMethod(copy.deepcopy(augMatrix6), 0.000000001, 100000000))
+    print("\n")
 
 
 
